@@ -21,10 +21,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node.js (Latest)
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
 
       - name: Install pnpm
         run: npm install -g pnpm
@@ -32,13 +32,13 @@ jobs:
       - name: Install Dependencies
         run: pnpm install
 
-      - name: Build Project
-        run: pnpm build
+      - name: Build Sub-Project
+        # Yeh command direct workspace filter ka use karke specific project ko compile karegi
+        run: pnpm --filter muj-international-student-cell build
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Vite compile karke dist folder banata hai
           path: './artifacts/muj-international-student-cell/dist'
 
       - name: Deploy to GitHub Pages
