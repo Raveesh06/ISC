@@ -33,7 +33,6 @@ jobs:
         run: pnpm install
 
       - name: Build Sub-Project
-        # Yeh command direct workspace filter ka use karke specific project ko compile karegi
         run: pnpm --filter muj-international-student-cell build
 
       - name: Upload artifact
