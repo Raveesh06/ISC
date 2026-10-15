@@ -33,12 +33,15 @@ jobs:
         run: pnpm install
 
       - name: Build Sub-Project
-        run: pnpm --filter muj-international-student-cell build
+        run: pnpm --filter @workspace/muj-international-student-cell build
+        env:
+          PORT: 5000
+          BASE_PATH: /ISC/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './artifacts/muj-international-student-cell/dist'
+          path: './artifacts/muj-international-student-cell/dist/public'
 
       - name: Deploy to GitHub Pages
         id: deployment
