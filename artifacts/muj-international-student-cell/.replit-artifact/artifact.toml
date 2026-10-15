@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "MUJ International Student Cell"
+description = "A cinematic, mobile-friendly website for the International Student Cell at Manipal University Jaipur, sharing global opportunities, official events, team details, and contact information."
+version = "1.0.0"
+id = "artifacts/muj-international-student-cell"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23065
+
+[services.development]
+run = "pnpm --filter @workspace/muj-international-student-cell run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/muj-international-student-cell", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/muj-international-student-cell/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23065"
+BASE_PATH = "/"
