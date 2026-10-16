@@ -54,6 +54,36 @@ const core = [
   ['Kanishka Nayak', 'kanishka.jpg'], ['Aarushi Khanna', 'aarushi.jpg'], ['Yagyansh', 'yag.jpg'],
   ['Manaswini Meka', 'manaswini.jpg'],
 ].map(([name, file]) => ({ name, role: 'Core Committee', src: `${MUJ}/img/${file}` }));
+const memberContacts = [
+  { name: 'Aditya Kulkarni', role: 'Student Committee', email: 'Aditya.23FE10ECE00065@muj.manipal.edu' },
+  { name: 'Ishani Lohar', role: 'Student Committee', email: 'ISHANI.23FE10CSE00832@muj.manipal.edu' },
+  { name: 'Kanishk Srivastava', role: 'Student Committee', email: 'kanishk.23fs10bca00192@muj.manipal.edu' },
+  { name: 'Aaryan Gupta', role: 'Head of Incoming Delegation', email: 'aaryan.229310070@muj.manipal.edu' },
+  { name: 'Krati Goyal', role: 'Student Committee', email: 'KRATI.23FA10BEH00002@muj.manipal.edu' },
+  { name: 'Kriissh Marwaha', role: 'Student Committee', email: 'Kriissh.23FE10CII00076@muj.manipal.edu' },
+  { name: 'Abhay Singh', role: 'Head of Events', email: 'abhay.229311201@muj.manipal.edu' },
+  { name: 'Abhijeet Anand Jha', role: 'Head of Sponsorships', email: 'abhijeet.229301027@muj.manipal.edu' },
+  { name: 'Tisha Saraf', role: 'Student Committee', email: 'tisha.220903063@muj.manipal.edu' },
+  { name: 'Heer Sharma', role: 'Student Committee', email: 'heer.23fa10jmc00018@muj.manipal.edu' },
+  { name: 'Agrima Singh', role: 'Student Committee', email: 'agrima.23fe10cse00315@gmail.com' },
+  { name: 'Suryanshi Singh', role: 'Student Committee', email: 'suryanshi.23fe10cds00125@muj.manipal.edu' },
+  { name: 'Tanvi Patel', role: 'Student Committee', email: 'TANVI.23FA20MCP00046@muj.manipal.edu' },
+  { name: 'Tulip Ghosh', role: 'Student Committee', email: 'tulip.221006013@muj.manipal.edu' },
+  { name: 'Devdutt Patel', role: 'Head Finance', email: 'devdutt.229403012@muj.manipal.edu' },
+  { name: 'Ananya Jain', role: 'Student Committee', email: 'ANANYA.23FE10CSE00086@muj.manipal.edu' },
+  { name: 'Yuvraj Puri', role: 'Head of Design', email: 'yuvraj.211015070@muj.manipal.edu' },
+  { name: 'Saumay Khutatia', role: 'Student Committee', email: 'SAUMAY.23FL10IBL00013@muj.manipal.edu' },
+  { name: 'Chahat Patni', role: 'Student Committee', email: 'chahat.23fa10jmc00008@muj.manipal.edu' },
+  { name: 'Urvi Thakare', role: 'Head of Social Media', email: 'urvi.221007004@muj.manipal.edu' },
+  { name: 'Pihu Malhotra', role: 'Student Committee', email: 'Pihu.23fe10cii00056@muj.manipal.edu' },
+  { name: 'Anushka Sinha', role: 'Student Committee', email: 'ANUSHKA.23FA10BSP00065@muj.manipal.edu' },
+  { name: 'Asmi Dhadiwal', role: 'Student Committee', email: 'asmi.23fe10bte00013@muj.manipal.edu' },
+  { name: 'Siddham Gupta', role: 'Student Committee', email: 'SIDDHAM.23FE10CDS00090@muj.manipal.edu' },
+  { name: 'Disha Jain', role: 'Student Committee', email: 'DISHA.23FA20MAE0008@muj.manipal.edu' },
+  { name: 'Amber Kewlani', role: 'Student Committee', email: 'AMBER.23FA10BSP00029@muj.manipal.edu' },
+  { name: 'Lakshya Goel', role: 'Head of Events', email: 'lakshya.219301625@muj.manipal.edu' },
+  { name: 'Ansh Jain', role: 'Student Committee', email: 'ansh.229301127@muj.manipal.edu' },
+];
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -240,6 +270,19 @@ function App() {
           <div className="contact-info" data-motion="reveal" style={motionDelay(1)}><span className="eyebrow">FIND US</span><p>Room No. 213, DoIC Office<br />Second Floor, Dome Building, MUJ</p></div>
           <a className="linkedin-link" data-motion="reveal" style={motionDelay(2)} href={linkedin} target="_blank" rel="noopener noreferrer" data-testid="link-linkedin">Follow ISC on LinkedIn <ArrowUpRight size={15} /></a>
         </div>
+        <details className="member-contacts wrap" data-motion="reveal">
+          <summary><span className="eyebrow">MEMBER EMAILS · {memberContacts.length} CONTACTS</span><span className="member-contacts-toggle">View all <ArrowDown size={14} /></span></summary>
+          <ul className="member-contacts-grid">
+            {memberContacts.map((member) => (
+              <li className="member-contact" key={member.email}>
+                <span className="member-contact-name">{member.name}</span>
+                <span className="member-contact-role">{member.role}</span>
+                <a href={`mailto:${member.email}`}>{member.email}</a>
+              </li>
+            ))}
+          </ul>
+          <a className="member-contacts-source" href={officialPage} target="_blank" rel="noopener noreferrer">Contact details from the official MUJ page <ArrowUpRight size={13} /></a>
+        </details>
       </section>
       </main>
       <footer className="footer">
