@@ -164,7 +164,7 @@ function App() {
           <div className="intro-mark" data-motion="reveal"><SafeImage src={`${MUJ}/img/isc-cell.jpg`} alt="International Student Cell mark" /></div>
           <div className="intro-copy">
             <p className="eyebrow section-label" data-motion="reveal"><span>01</span> &nbsp; A campus without borders</p>
-            <h2 className="display" data-motion="heading">The next horizon<br />is <em>closer</em> than you think.</h2>
+            <h2 className="display reveal">The next horizon<br />is <em>closer</em> than you think.</h2>
             <div className="intro-text" data-motion="reveal">
               <p data-testid="text-isc-overview">At MUJ, the world is part of the curriculum. The International Student Cell broadens global horizons by connecting students with international exchange, internships, collaborative research and cultural immersion.</p>
               <p>We build global awareness and partnerships for MUJ students and incoming international students—making a globally curious campus feel like home. Through these experiences, students learn to navigate diverse cultures, collaborate across borders and grow into thoughtful global citizens.</p>
