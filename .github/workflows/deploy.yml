@@ -21,7 +21,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js (Latest)
+      - name: Configure GitHub Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 24
@@ -36,12 +40,12 @@ jobs:
         run: pnpm --filter @workspace/muj-international-student-cell build
         env:
           PORT: 5000
-          BASE_PATH: /ISC/
+          BASE_PATH: ${{ steps.pages.outputs.base_path }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './artifacts/muj-international-student-cell/dist/public'
+          path: "./artifacts/muj-international-student-cell/dist/public"
 
       - name: Deploy to GitHub Pages
         id: deployment

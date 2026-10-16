@@ -27,8 +27,10 @@ if (!basePath) {
   );
 }
 
+const normalizedBasePath = basePath.endsWith('/') ? basePath : `${basePath}/`;
+
 export default defineConfig({
-  base: '/ISC/',
+  base: normalizedBasePath,
   plugins: [
     react(),
     tailwindcss(),
